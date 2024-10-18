@@ -60,7 +60,8 @@ export default function PostPage({
 
 export const getServerSideProps = async ({ params }) => {
   const globalData = getGlobalData();
-  const posts = await getPostBySlug(params.id);
+  const postsArray = await getPostBySlug(params.id);
+  const posts = postsArray.length > 0 ? postsArray[0] : {};
  
 
   return {
